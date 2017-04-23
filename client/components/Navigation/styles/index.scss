@@ -1,0 +1,32 @@
+nav {
+	margin: 20px auto;
+	padding-bottom: 10px;
+	max-width: 1024px;
+	border-bottom: 1px solid #ABB7B7;
+	@media (max-width: 1024px) {
+		border-bottom: none;
+	}
+	@media (max-width: 500px) {
+		margin-top: 5px;
+	}
+	ul {
+		width: 100%;
+		padding: 0;
+		margin: 0 auto;
+		list-style-type: none;
+		display: flex;
+		justify-content: center;
+    	overflow: auto;
+    	@media (max-width: 500px) {
+    		justify-content: space-between;
+    	}
+		li {
+			display: inline-block;
+			padding: 0 10px;
+			font-weight: 300;
+			text-transform: uppercase;
+			letter-spacing: -1;
+			color: #ABB7B7;
+		}
+	}
+}
