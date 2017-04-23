@@ -5,16 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://use.fontawesome.com/3e05f79330.js"></script>
 </head>
-  <body>
-
-  <main id="app"></main>
-
-  <%- body %>
-
-  <% if (env.production) { %>
-    <script async src="<%= env.assets.main.js %>"></script>
+  <% if (process.env.NODE_ENV === "PRODUCTION") { %>
+    <body>
+      <main id="app"></main>
+    </body>
   <% } else { %>
-    <script src="http://localhost:3000/client/main.js"></script>
+    <body>
+      <main id="app"></main>
+      <script src="http://localhost:3000/client/main.js"></script>
+    </body>
   <% } %>
-  </body>
 </html>

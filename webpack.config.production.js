@@ -4,6 +4,7 @@ var webpack = require('webpack');
 var config = require('./webpack.config.base.js');
 
 var SaveAssetsJson = require('assets-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 config.bail = true;
 config.debug = false;
@@ -13,7 +14,7 @@ config.devtool = '#source-map';
 config.output = {
   path: './client/dist',
   pathInfo: true,
-  publicPath: '/client/dist/',
+  publicPath: './',
   filename: 'bundle.[hash].min.js'
 };
 
@@ -37,6 +38,10 @@ config.plugins = config.plugins.concat([
     'process.env': {
       NODE_ENV: JSON.stringify('production')
     }
+  }),
+  new HtmlWebpackPlugin({
+    template: './server/views/layout.ejs',
+    inject: 'body',
   })
 ]);
 
